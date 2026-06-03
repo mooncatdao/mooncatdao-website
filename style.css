@@ -147,7 +147,7 @@ img {
 .project-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 45px;
     margin-top: 24px;
 }
 
