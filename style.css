@@ -1,3 +1,7 @@
+html {
+    color-scheme: dark;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -115,6 +119,13 @@ img {
 .avatar {
     width: 50px;
     border-radius: 50%;
+}
+
+img,
+.avatar,
+.project-screenshot {
+    filter: none;
+    mix-blend-mode: normal;
 }
 
 .mooncat-gallery {
