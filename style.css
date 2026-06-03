@@ -1,24 +1,30 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-color: black;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', Arial, sans-serif;
     color: #d3d3d3;
-    font-size: 15px;
+    font-size: 17px;
+    line-height: 1.55;
 }
 
 .container {
-    width: 700px;
+    max-width: 800px;
+    width: 100%;
     margin: auto;
+    padding: 0 0px;
 }
 
 .toptitle {
-    position: sticky; top: 0;
+    position: sticky;
+    top: 0;
     background: black;
     height: 140px;
+    z-index: 10;
 }
 
 .title-pic {
@@ -29,8 +35,7 @@ body {
 h1 {
     text-align: center;
     padding-top: 30px;
-
-    font-family: courier;
+    font-family: courier, monospace;
     font-size: 5em;
     line-height: 1em;
     color: #88ee88;
@@ -38,12 +43,11 @@ h1 {
 }
 
 h2 {
-    font-family: courier;
+    font-family: courier, monospace;
     font-size: 2em;
     line-height: 1em;
     color: #88ee88;
     text-shadow: 4px 4px 0px #444;
-
     margin-top: 40px;
     margin-bottom: 20px;
 }
@@ -57,8 +61,13 @@ ul {
     margin-left: 40px;
 }
 
+li {
+    line-height: 1.55;
+}
+
 a {
     text-decoration: none;
+    overflow-wrap: anywhere;
 }
 
 a:link {
@@ -68,15 +77,26 @@ a:link {
 a:visited {
     color: #ee81ee;
 }
-  
+
 a:hover {
     color: hotpink;
 }
 
+a:focus-visible {
+    outline: 2px solid hotpink;
+    outline-offset: 3px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .members {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     padding: 10px;
+    gap: 10px;
 }
 
 .member {
@@ -84,11 +104,12 @@ a:hover {
     grid-template-columns: 60px auto;
     column-gap: 10px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    align-items: center;
 }
 
 .member-name {
     text-align: left;
-    padding-top: 15px;
 }
 
 .avatar {
@@ -121,4 +142,165 @@ a:hover {
     color: white;
     font-size: 12px;
     padding: 60px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 18px;
+    align-items: center;
+    padding: 16px;
+    background: #111;
+    border-radius: 12px;
+}
+
+.project-screenshot-link {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #222;
+}
+
+.project-screenshot {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 160ms ease;
+}
+
+.project-screenshot-link:hover .project-screenshot {
+    transform: scale(1.04);
+}
+
+.project-name {
+    margin: 0 0 8px 0;
+    font-family: courier, monospace;
+    font-size: 1.35em;
+    line-height: 1.1;
+    color: #88ee88;
+    text-shadow: 3px 3px 0px #444;
+}
+
+.project-description {
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* Mobile adjustments */
+@media (max-width: 720px) {
+    body {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .container {
+        padding: 0 8px;
+    }
+
+    .toptitle {
+        height: auto;
+        min-height: 110px;
+        padding-bottom: 16px;
+    }
+
+    .title-pic {
+        width: 72px;
+        padding-top: 24px;
+    }
+
+    h1 {
+        font-size: 3.1rem;
+        line-height: 1;
+        padding-top: 28px;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        line-height: 1.15;
+        margin-top: 36px;
+        margin-bottom: 18px;
+    }
+
+    p,
+    li {
+        line-height: 1.6;
+    }
+
+    ul {
+        margin-left: 24px;
+    }
+
+    .members {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    .member {
+        grid-template-columns: 60px auto;
+    }
+
+    .mooncat-gallery {
+        width: 100%;
+    }
+
+    .project-card {
+        grid-template-columns: 1fr;
+        padding: 14px;
+    }
+
+    .project-name {
+        font-size: 1.6em;
+    }
+
+    .project-description {
+        line-height: 1.55;
+    }
+
+    .footer {
+        font-size: 13px;
+        padding: 40px 20px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    .title-pic {
+        width: 62px;
+    }
+
+    h1 {
+        font-size: 2.6rem;
+    }
+
+    h2 {
+        font-size: 1.55rem;
+    }
+
+    .project-card {
+        padding: 12px;
+    }
+}
+
+/* Avoid unnecessary motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .project-screenshot {
+        transition: none;
+    }
+
+    .project-screenshot-link:hover .project-screenshot {
+        transform: none;
+    }
 }
