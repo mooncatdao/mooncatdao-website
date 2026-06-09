@@ -1,0 +1,454 @@
+/* MoonCats static wiki page
+   Place at: public/wiki/wiki.css
+   Linked from: public/wiki/mooncats/index.html as ../wiki.css
+*/
+
+:root {
+  --wiki-bg: #f8f6ee;
+  --wiki-paper: #fffdf6;
+  --wiki-text: #1e1a14;
+  --wiki-muted: #625a4e;
+  --wiki-border: #c9bfa8;
+  --wiki-link: #1f5d4a;
+  --wiki-link-hover: #2f8b6f;
+  --wiki-heading: #2f7d32;
+  --wiki-shadow: rgba(0, 0, 0, 0.08);
+  --wiki-external-link-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2012'%3E%3Cpath%20fill='%233366cc'%20d='M6%201h5v5H9.4V3.7L4.7%208.4%203.6%207.3%208.3%202.6H6V1z'/%3E%3Cpath%20fill='%233366cc'%20d='M2%202h3v1.4H3.4v5.2h5.2V7H10v3H2V2z'/%3E%3C/svg%3E");
+  --wiki-media-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2012'%3E%3Cpath%20fill='none'%20stroke='%2354595d'%20stroke-width='1'%20d='M1.5%204.5v6h6M4.5%201.5h6v6M5%207l5-5'/%3E%3C/svg%3E");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--wiki-bg);
+  color: var(--wiki-text);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--wiki-link);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--wiki-link-hover);
+}
+
+.wiki-site-header {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem 1rem 0;
+}
+
+.wiki-back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wiki-title-block {
+  border: 1px solid var(--wiki-border);
+  background: var(--wiki-paper);
+  box-shadow: 0 2px 12px var(--wiki-shadow);
+  padding: 1.25rem;
+}
+
+.wiki-title-block h1 {
+  margin: 0;
+  color: var(--wiki-heading);
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1;
+}
+
+.wiki-preservation-note {
+  margin: 0.5rem 0 0;
+  color: var(--wiki-muted);
+}
+
+.wiki-page {
+  max-width: 1180px;
+  margin: 1rem auto 3rem;
+  padding: 1.25rem;
+  background: var(--wiki-paper);
+  border: 1px solid var(--wiki-border);
+  box-shadow: 0 2px 12px var(--wiki-shadow);
+}
+
+.wiki-page h2 {
+  clear: both;
+  color: var(--wiki-heading);
+  line-height: 1.2;
+}
+
+.wiki-page h2 {
+  margin-top: 2.2rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--wiki-border);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.wiki-page h3 {
+  color: var(--wiki-heading);
+  line-height: 1.2;
+  margin-top: 1.75rem;
+  font-size: 1.25rem;
+}
+
+.wiki-page p,
+.wiki-page ul,
+.wiki-page ol {
+  max-width: 78ch;
+}
+
+.wiki-page img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: auto;
+}
+
+.wiki-infobox {
+  width: min(320px, 100%);
+  margin: 0 0 1.25rem 1.25rem;
+  float: right;
+  border: 1px solid var(--wiki-border);
+  background: #fffaf0;
+  font-size: 0.95rem;
+}
+
+.wiki-infobox h2 {
+  margin: 0;
+  padding: 0.75rem;
+  border: 0;
+  background: var(--wiki-heading);
+  color: #fff;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.wiki-infobox img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  margin: 0.75rem auto;
+  padding: 0;
+  border: 0;
+  image-rendering: pixelated;
+}
+
+.wiki-infobox table {
+  margin: 0;
+  width: 100%;
+  border-collapse: collapse;
+  display: table;
+  overflow: visible;
+}
+
+.wiki-infobox th,
+.wiki-infobox td {
+  border-top: 1px solid var(--wiki-border);
+  padding: 0.45rem 0.6rem;
+  vertical-align: top;
+}
+
+.wiki-infobox th {
+  width: 42%;
+  text-align: left;
+  color: var(--wiki-muted);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  display: block;
+}
+
+caption {
+  caption-side: top;
+  padding: 0.5rem;
+  font-weight: 700;
+  color: var(--wiki-heading);
+  text-align: left;
+}
+
+th,
+td {
+  border: 1px solid var(--wiki-border);
+  padding: 0.5rem;
+  vertical-align: top;
+}
+
+thead th {
+  background: #efe7d3;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  color: var(--wiki-muted);
+  font-size: 0.85rem;
+}
+
+.wiki-page a[href^="http://"]::after,
+.wiki-page a[href^="https://"]::after,
+.wiki-site-header a[href^="http://"]::after,
+.wiki-site-header a[href^="https://"]::after {
+  content: "";
+  display: inline-block;
+  width: 0.78em;
+  height: 0.78em;
+  margin-left: 0.12em;
+  vertical-align: text-top;
+  background-image: var(--wiki-external-link-icon);
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.9;
+}
+
+.wiki-page a.footnote-ref::after,
+.wiki-page a.footnote-back::after,
+.wiki-page .wiki-toc a::after,
+.wiki-page a:has(img)::after,
+.wiki-site-header a:has(img)::after {
+  content: none;
+}
+
+.wiki-toc {
+  display: table;
+  clear: left;
+  margin: 1rem 1.5rem 1.5rem 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.wiki-toc.is-collapsed {
+  margin-bottom: 1rem;
+}
+
+.wiki-toc + h2 {
+  clear: none;
+}
+
+.wiki-toc.is-collapsed + h2 {
+  margin-top: 1.25rem;
+}
+
+.wiki-toc-title {
+  margin-bottom: 0.35rem;
+  text-align: center;
+}
+
+.wiki-toc.is-collapsed .wiki-toc-title {
+  margin-bottom: 0;
+}
+
+.wiki-toc-toggle {
+  margin-left: 0.25rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #36c;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85em;
+  font-weight: 400;
+}
+
+.wiki-toc-toggle:hover,
+.wiki-toc-toggle:focus-visible {
+  text-decoration: underline;
+}
+
+.wiki-toc ol {
+  max-width: none;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.wiki-toc ol ol {
+  margin-left: 1.6rem;
+}
+
+.wiki-toc li {
+  margin: 0.12rem 0;
+}
+
+.wiki-toc a {
+  color: #0645ad;
+  text-decoration: none;
+}
+
+.wiki-toc a:hover,
+.wiki-toc a:focus-visible {
+  text-decoration: underline;
+}
+
+.tocnumber {
+  margin-right: 0.35rem;
+  color: #202122;
+}
+
+.footnotes,
+.wiki-references {
+  clear: both;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--wiki-border);
+  font-size: 0.92rem;
+}
+
+.footnotes ol,
+.wiki-references ol {
+  max-width: none;
+  padding-left: 1.5rem;
+}
+
+.footnotes li,
+.wiki-references li {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 759px) {
+  body {
+    font-size: 16px;
+  }
+
+  .wiki-site-header,
+  .wiki-page {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .wiki-infobox {
+    float: none;
+    width: 100%;
+    margin: 0 0 1.25rem;
+  }
+
+  table {
+    font-size: 0.92rem;
+  }
+
+  .wiki-toc {
+    display: block;
+    width: 100%;
+    margin: 1rem 0 1.5rem;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+  }
+
+  .wiki-site-header,
+  .wiki-page {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: #fff;
+  }
+
+  .wiki-back-link {
+    display: none;
+  }
+
+  a {
+    color: #000;
+  }
+}
+/* Article image captions */
+.wiki-thumb {
+  box-sizing: border-box;
+  float: right;
+  clear: right;
+  width: min(310px, 42%);
+  margin: 0.25rem 0 1rem 1.4rem;
+  padding: 3px;
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.wiki-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid #c8ccd1;
+  background: #fff;
+}
+
+.wiki-thumb figcaption {
+  position: relative;
+  padding: 0.35rem 1.15rem 0.15rem 0.1rem;
+  color: #202122;
+  font-size: 0.82rem;
+}
+
+.wiki-thumb figcaption::after {
+  content: "";
+  position: absolute;
+  right: 0.1rem;
+  top: 0.45rem;
+  width: 12px;
+  height: 12px;
+  background-image: var(--wiki-media-icon);
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.75;
+}
+
+/* Images inside wiki tables should stay compact */
+.wiki-table-image {
+  margin: 0;
+  text-align: center;
+}
+
+.wiki-table-image img {
+  display: block;
+  margin: 0 auto;
+}
+
+.wiki-table-image figcaption,
+table figure figcaption {
+  display: none;
+}
+
+/* Mobile: stack article images above/below the text */
+@media (max-width: 700px) {
+  .wiki-thumb {
+    float: none;
+    clear: both;
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+
+  .wiki-thumb img {
+    max-height: none;
+  }
+}
