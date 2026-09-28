@@ -4,7 +4,7 @@
     2,
     9,
     10,
-    16,
+    11,
     17,
     22,
     31,
@@ -90,6 +90,23 @@
       "height": "84",
       "etag": "f1929e0501acfce615f317daffafcb44",
       "url": "https://api.mooncat.community/image/10?scale=2&padding=0&backgroundColor=transparent&acc=&glow=false",
+      "imageOptions": {
+        "scale": "2",
+        "padding": "0",
+        "backgroundColor": "transparent",
+        "acc": "",
+        "glow": "false"
+      }
+    },
+    {
+      "rescueIndex": 11,
+      "variant": "regular",
+      "status": "cached",
+      "size": 557,
+      "width": "84",
+      "height": "68",
+      "etag": "aacc303ad19a28654eb28b2cdfde7ec8",
+      "url": "https://api.mooncat.community/image/11?scale=2&padding=0&backgroundColor=transparent&acc=&glow=false",
       "imageOptions": {
         "scale": "2",
         "padding": "0",
@@ -847,6 +864,23 @@
       }
     },
     {
+      "rescueIndex": 11,
+      "variant": "glow",
+      "status": "cached",
+      "size": 3565,
+      "width": "84",
+      "height": "68",
+      "etag": "70518fa38e65ee36437e2c659357e169",
+      "url": "https://api.mooncat.community/image/11?scale=2&padding=0&backgroundColor=transparent&acc=&glow=true",
+      "imageOptions": {
+        "scale": "2",
+        "padding": "0",
+        "backgroundColor": "transparent",
+        "acc": "",
+        "glow": "true"
+      }
+    },
+    {
       "rescueIndex": 16,
       "variant": "glow",
       "status": "skipped",
@@ -1592,6 +1626,22 @@
       }
     },
     {
+      "rescueIndex": 11,
+      "variant": "accessorized",
+      "status": "cached",
+      "size": 557,
+      "width": "84",
+      "height": "68",
+      "etag": "aacc303ad19a28654eb28b2cdfde7ec8",
+      "url": "https://api.mooncat.community/image/11?scale=2&padding=0&backgroundColor=transparent&glow=false",
+      "imageOptions": {
+        "scale": "2",
+        "padding": "0",
+        "backgroundColor": "transparent",
+        "glow": "false"
+      }
+    },
+    {
       "rescueIndex": 16,
       "variant": "accessorized",
       "status": "skipped",
@@ -2288,6 +2338,22 @@
       "height": "84",
       "etag": "2b51a954ebe9919672d4591d1b211163",
       "url": "https://api.mooncat.community/image/10?scale=2&padding=0&backgroundColor=transparent&glow=true",
+      "imageOptions": {
+        "scale": "2",
+        "padding": "0",
+        "backgroundColor": "transparent",
+        "glow": "true"
+      }
+    },
+    {
+      "rescueIndex": 11,
+      "variant": "accessorized-glow",
+      "status": "cached",
+      "size": 3565,
+      "width": "84",
+      "height": "68",
+      "etag": "70518fa38e65ee36437e2c659357e169",
+      "url": "https://api.mooncat.community/image/11?scale=2&padding=0&backgroundColor=transparent&glow=true",
       "imageOptions": {
         "scale": "2",
         "padding": "0",
