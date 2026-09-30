@@ -794,6 +794,37 @@ table figure figcaption {
   display: none;
 }
 
+.wiki-character-table .wiki-table-image,
+.wiki-sales-table .wiki-table-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.wiki-character-table .wiki-table-image {
+  width: 8rem;
+  height: 8rem;
+}
+
+.wiki-sales-table .wiki-table-image {
+  width: 6.5rem;
+  height: 6.5rem;
+}
+
+.wiki-character-table .wiki-table-image img,
+.wiki-sales-table .wiki-table-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.wiki-character-table td:has(.wiki-table-image),
+.wiki-sales-table td:has(.wiki-table-image) {
+  vertical-align: middle;
+}
+
 /* Mobile: stack article images above/below the text */
 @media (max-width: 700px) {
   .wiki-thumb {
@@ -811,6 +842,28 @@ table figure figcaption {
   .wiki-theme-control {
     position: static;
     margin-top: 1rem;
+  }
+
+  .wiki-character-table .wiki-table-image {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  .wiki-sales-table .wiki-table-image {
+    width: 5.25rem;
+    height: 5.25rem;
+  }
+
+  .wiki-sales-table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .wiki-sales-table th,
+  .wiki-sales-table td {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
   }
 
   .wiki-lightbox {
