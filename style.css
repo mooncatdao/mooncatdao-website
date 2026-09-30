@@ -12,7 +12,7 @@ body {
     background-color: black;
     font-family: 'Open Sans', Arial, sans-serif;
     color: #d3d3d3;
-    font-size: 17px;
+    font-size: clamp(1rem, 0.9rem + 0.25vw, 1.0625rem);
     line-height: 1.55;
 }
 
@@ -20,35 +20,53 @@ body {
     max-width: 800px;
     width: 100%;
     margin: auto;
-    padding: 0 0px;
+    padding: 0 clamp(16px, 3vw, 24px);
 }
 
 .toptitle {
     position: sticky;
     top: 0;
+    display: grid;
+    container-type: inline-size;
+    grid-template-columns: clamp(40px, 12%, 100px) minmax(0, 1fr) clamp(40px, 12%, 100px);
+    align-items: center;
+    gap: clamp(8px, 2vw, 16px);
     background: black;
-    height: 140px;
+    min-height: clamp(80px, 18vw, 140px);
+    padding-top: 16px;
     z-index: 10;
 }
 
 .title-pic {
-    padding-top: 30px;
-    float: left;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+.title-pic-left {
+    justify-self: start;
+}
+
+.title-pic-right {
+    justify-self: end;
 }
 
 h1 {
     text-align: center;
-    padding-top: 30px;
     font-family: courier, monospace;
-    font-size: 5em;
+    /* Scale against the header width so the title stays between the cats. */
+    font-size: clamp(1rem, 8.5vw, 4.5rem);
+    font-size: clamp(1rem, 8.5cqi, 4.5rem);
     line-height: 1em;
     color: #88ee88;
     text-shadow: 4px 4px 0px #444;
+    white-space: nowrap;
 }
 
 h2 {
     font-family: courier, monospace;
-    font-size: 2em;
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 2.125rem);
     line-height: 1em;
     color: #88ee88;
     text-shadow: 4px 4px 0px #444;
@@ -98,14 +116,14 @@ img {
 
 .members {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    padding: 10px 0;
     gap: 10px;
 }
 
 .member {
     display: grid;
-    grid-template-columns: 60px auto;
+    grid-template-columns: 60px minmax(0, 1fr);
     column-gap: 10px;
     margin-bottom: 10px;
     padding-bottom: 10px;
@@ -207,56 +225,8 @@ img,
 
 /* Mobile adjustments */
 @media (max-width: 720px) {
-    body {
-        font-size: 12px;
-        line-height: 1.6;
-    }
-
-    .container {
-        padding: 0 8px;
-    }
-
-    .toptitle {
-        height: auto;
-        min-height: 110px;
-        padding-bottom: 16px;
-    }
-
-    .title-pic {
-        width: 72px;
-        padding-top: 24px;
-    }
-
-    h1 {
-        font-size: 3.1rem;
-        line-height: 1;
-        padding-top: 28px;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-        line-height: 1.15;
-        margin-top: 36px;
-        margin-bottom: 18px;
-    }
-
-    p,
-    li {
-        line-height: 1.6;
-    }
-
     ul {
         margin-left: 24px;
-    }
-
-    .members {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 10px 0;
-        gap: 10px;
-    }
-
-    .member {
-        grid-template-columns: 60px auto;
     }
 
     .mooncat-gallery {
@@ -284,22 +254,6 @@ img,
 
 /* Very small phones */
 @media (max-width: 420px) {
-    .container {
-        padding: 0 14px;
-    }
-
-    .title-pic {
-        width: 62px;
-    }
-
-    h1 {
-        font-size: 2.6rem;
-    }
-
-    h2 {
-        font-size: 1.55rem;
-    }
-
     .project-card {
         padding: 12px;
     }
