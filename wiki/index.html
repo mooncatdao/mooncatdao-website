@@ -1151,6 +1151,136 @@
       updateReaderNav();
       window.addEventListener("scroll", updateReaderNav, { passive: true });
     }
+
+    (() => {
+      const lightboxImages = document.querySelectorAll(".wiki-thumb img, .wiki-infobox > img");
+      if (!lightboxImages.length) {
+        return;
+      }
+
+      const lightbox = document.createElement("div");
+      lightbox.id = "wiki-image-lightbox";
+      lightbox.className = "wiki-lightbox";
+      lightbox.hidden = true;
+      lightbox.setAttribute("aria-hidden", "true");
+      lightbox.setAttribute("role", "dialog");
+      lightbox.setAttribute("aria-modal", "true");
+      lightbox.setAttribute("aria-label", "Image preview");
+
+      const dialog = document.createElement("div");
+      dialog.className = "wiki-lightbox-dialog";
+
+      const closeButton = document.createElement("button");
+      closeButton.className = "wiki-lightbox-close";
+      closeButton.type = "button";
+      closeButton.setAttribute("aria-label", "Close image preview");
+      closeButton.textContent = "×";
+
+      const figure = document.createElement("figure");
+      figure.className = "wiki-lightbox-figure";
+
+      const lightboxImage = document.createElement("img");
+      lightboxImage.className = "wiki-lightbox-image";
+      lightboxImage.decoding = "async";
+
+      const caption = document.createElement("figcaption");
+      caption.className = "wiki-lightbox-caption";
+      caption.id = "wiki-lightbox-caption";
+
+      figure.append(lightboxImage, caption);
+      dialog.append(closeButton, figure);
+      lightbox.append(dialog);
+      document.body.append(lightbox);
+
+      const getCaption = (image) => {
+        const figureCaption = image.closest("figure")?.querySelector("figcaption")?.textContent.trim();
+        return figureCaption || image.alt.trim();
+      };
+
+      let activeTrigger = null;
+      let previousBodyOverflow = "";
+      let isOpen = false;
+
+      const closeLightbox = () => {
+        if (!isOpen) {
+          return;
+        }
+
+        isOpen = false;
+        lightbox.classList.remove("is-open");
+        lightbox.hidden = true;
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = previousBodyOverflow;
+
+        if (activeTrigger && document.contains(activeTrigger)) {
+          activeTrigger.focus();
+        }
+        activeTrigger = null;
+      };
+
+      const openLightbox = (trigger) => {
+        activeTrigger = trigger;
+        previousBodyOverflow = document.body.style.overflow;
+        lightboxImage.src = trigger.currentSrc || trigger.src;
+        lightboxImage.alt = trigger.alt || "Expanded wiki image";
+
+        const imageCaption = getCaption(trigger);
+        caption.textContent = imageCaption;
+        caption.hidden = !imageCaption;
+        if (imageCaption) {
+          lightbox.setAttribute("aria-describedby", caption.id);
+        } else {
+          lightbox.removeAttribute("aria-describedby");
+        }
+
+        isOpen = true;
+        lightbox.hidden = false;
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        window.requestAnimationFrame(() => lightbox.classList.add("is-open"));
+        closeButton.focus();
+      };
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      closeButton.addEventListener("click", closeLightbox);
+
+      document.addEventListener("keydown", (event) => {
+        if (!isOpen) {
+          return;
+        }
+
+        if (event.key === "Escape") {
+          event.preventDefault();
+          closeLightbox();
+          return;
+        }
+
+        if (event.key === "Tab") {
+          event.preventDefault();
+          closeButton.focus();
+        }
+      });
+
+      lightboxImages.forEach((image) => {
+        const imageCaption = getCaption(image);
+        image.tabIndex = 0;
+        image.setAttribute("role", "button");
+        image.setAttribute("aria-haspopup", "dialog");
+        image.setAttribute("aria-controls", lightbox.id);
+        image.setAttribute("aria-label", imageCaption ? `Open image: ${imageCaption}` : "Open image");
+        image.addEventListener("click", () => openLightbox(image));
+        image.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openLightbox(image);
+          }
+        });
+      });
+    })();
   </script>
 </body>
 
