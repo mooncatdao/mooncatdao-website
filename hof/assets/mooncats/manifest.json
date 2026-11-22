@@ -101,7 +101,7 @@
     {
       "rescueIndex": 11,
       "variant": "regular",
-      "status": "cached",
+      "status": "skipped",
       "size": 557,
       "width": "84",
       "height": "68",
@@ -866,7 +866,7 @@
     {
       "rescueIndex": 11,
       "variant": "glow",
-      "status": "cached",
+      "status": "skipped",
       "size": 3565,
       "width": "84",
       "height": "68",
@@ -1628,7 +1628,7 @@
     {
       "rescueIndex": 11,
       "variant": "accessorized",
-      "status": "cached",
+      "status": "skipped",
       "size": 557,
       "width": "84",
       "height": "68",
@@ -2348,7 +2348,7 @@
     {
       "rescueIndex": 11,
       "variant": "accessorized-glow",
-      "status": "cached",
+      "status": "skipped",
       "size": 3565,
       "width": "84",
       "height": "68",
